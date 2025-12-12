@@ -1,0 +1,64 @@
+<h2>Generate Bill</h2>
+<form method="POST">
+    Customer:
+    <select name="customer" required>
+        {% for c in customers %}
+        <option value="{{ c.id }}">{{ c.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <h3>Items:</h3>
+    <div>
+        Product 1:
+        <select name="product1">
+            <option value="">None</option>
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+            {% endfor %}
+        </select>
+        Quantity: <input type="number" name="quantity1" value="1" min="1"><br>
+    </div>
+    <div>
+        Product 2:
+        <select name="product2">
+            <option value="">None</option>
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+            {% endfor %}
+        </select>
+        Quantity: <input type="number" name="quantity2" value="1" min="1"><br>
+    </div>
+    <div>
+        Product 3:
+        <select name="product3">
+            <option value="">None</option>
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+            {% endfor %}
+        </select>
+        Quantity: <input type="number" name="quantity3" value="1" min="1"><br>
+    </div>
+    <div>
+        Product 4:
+        <select name="product4">
+            <option value="">None</option>
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+            {% endfor %}
+        </select>
+        Quantity: <input type="number" name="quantity4" value="1" min="1"><br>
+    </div>
+    <div>
+        Product 5:
+        <select name="product5">
+            <option value="">None</option>
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} - ₹{{ p.price }}</option>
+            {% endfor %}
+        </select>
+        Quantity: <input type="number" name="quantity5" value="1" min="1"><br>
+    </div>
+    <br>
+    <button type="submit">Create Bill</button>
+</form>
+<a href="/">Back</a>

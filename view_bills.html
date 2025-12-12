@@ -1,0 +1,14 @@
+<h2>All Bills</h2>
+<table border="1">
+<tr><th>ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Actions</th></tr>
+{% for b in bills %}
+<tr>
+    <td>{{ b.id }}</td>
+    <td>{{ b.name }}</td>
+    <td>{{ b.date }}</td>
+    <td>₹{{ b.total }}</td>
+    <td><a href="/view_bill_details/{{ b.id }}">View Details</a></td>
+</tr>
+{% endfor %}
+</table>
+<a href="/">Back</a>

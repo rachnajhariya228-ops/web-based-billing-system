@@ -1,0 +1,40 @@
+<h2>Payment for Bill #{{ bill.id }}</h2>
+<p>Total Amount: ₹{{ bill.total }}</p>
+
+<form method="POST">
+    <h3>Select Payment Method:</h3>
+    <input type="radio" name="payment_method" value="cash" id="cash" required>
+    <label for="cash">Cash Payment</label><br>
+
+    <input type="radio" name="payment_method" value="upi" id="upi">
+    <label for="upi">UPI Payment</label><br>
+
+    <input type="radio" name="payment_method" value="card" id="card">
+    <label for="card">Card Payment</label><br><br>
+
+    <div id="upi_div" style="display:none;">
+        <h4>Scan QR Code for UPI Payment</h4>
+        <img src="data:image/png;base64,{{ qr_code }}" alt="UPI QR Code">
+        <p>After payment, click Confirm.</p>
+    </div>
+
+    <div id="card_div" style="display:none;">
+        <h4>Card Details</h4>
+        <input name="card_number" placeholder="Card Number" maxlength="16" required><br><br>
+        <input name="expiry" placeholder="Expiry (MM/YY)" required><br><br>
+        <input name="cvv" placeholder="CVV" maxlength="3" required><br><br>
+    </div>
+
+    <button type="submit">Confirm Payment</button>
+</form>
+
+<script>
+document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        document.getElementById('upi_div').style.display = this.value === 'upi' ? 'block' : 'none';
+        document.getElementById('card_div').style.display = this.value === 'card' ? 'block' : 'none';
+    });
+});
+</script>
+
+<a href="/view_bills">Back to Bills</a>
